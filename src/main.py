@@ -1,16 +1,18 @@
-import os
-from dotenv import load_dotenv
-from art import tprint
-
-# load ENV variables for debug
-# has no effect in production
-load_dotenv("local.env")
+import time
 
 
 def main():
-    name = os.environ["context.userLogin"]
-    print("Hello World! This app is run by the user:")
-    tprint(name)
+    log_limit = 0
+    counter = 0
+    while True:
+        time.sleep(0.5)
+        counter += 1
+        if counter % 10 == 0:
+            print(f"Counter = {counter}")
+            log_limit += 1
+        if log_limit >= 100:
+            print("App works too long ...")
+            exit(0)
 
 
 if __name__ == "__main__":
