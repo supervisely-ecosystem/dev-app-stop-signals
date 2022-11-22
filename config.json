@@ -1,9 +1,10 @@
 {
+  "version": "2.0.0",
   "main_script": "src/main.py",
   "headless": true,
-  "name": "Hello World!",
-  "description": "Demonstrates how to turn your python script into Supervisely App",
+  "name": "Test Stop Signals",
+  "description": "test OS stop signals",
   "categories": ["development"],
-  "icon": "https://user-images.githubusercontent.com/12828725/182186256-5ee663ad-25c7-4a62-9af1-fbfdca715b57.png",
+  "icon": "https://img.icons8.com/fluency/96/null/stop-sign.png",
   "poster": "https://user-images.githubusercontent.com/12828725/182181033-d0d1a690-8388-472e-8862-e0cacbd4f082.png"
 }
