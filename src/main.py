@@ -4,20 +4,14 @@ from fastapi_utils.tasks import repeat_every
 from supervisely.app.fastapi import run_sync
 import time
 import asyncio
-from functools import wraps, partial
-
 
 app = FastAPI()
 
 
 @app.on_event("startup")
-def startup_event():
+async def startup_event():
     print("----> start")
-    asyncio.get_event_loop().create_task(long_task())
-    # long_task()
-    # loop = asyncio.get_event_loop()
-    # coroutine = long_task()
-    # loop.run_until_complete(coroutine)
+    await long_task()
 
 
 @app.on_event("shutdown")
@@ -28,13 +22,13 @@ def shutdown_event():
 # https://fastapi-utils.davidmontague.xyz/user-guide/repeated-tasks/
 # @app.post("/items")
 # @repeat_every(seconds=1, max_repetitions=1)
-# @repeat_every(seconds=1, max_repetitions=10)
-async def long_task():
+@repeat_every(seconds=1, max_repetitions=1)
+def long_task():
     # print("long task")
     for i in range(100):
         print(f"Iteration {i}")
-        # time.sleep(1)
-        await asyncio.sleep(1)
+        time.sleep(1)
+        # await asyncio.sleep(1)
 
 
 # import os
