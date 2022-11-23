@@ -1,9 +1,5 @@
 from fastapi import FastAPI
-from fastapi_utils.tasks import repeat_every
-
-from supervisely.app.fastapi import run_sync
 import time
-import asyncio
 import functools
 from threading import Thread, Event
 
