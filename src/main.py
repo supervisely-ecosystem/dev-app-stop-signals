@@ -23,12 +23,12 @@ def shutdown_event():
 # @app.post("/items")
 # @repeat_every(seconds=1, max_repetitions=1)
 @repeat_every(seconds=1, max_repetitions=1)
-def long_task():
-    # print("long task")
+async def long_task():
+    print("long task")
     for i in range(100):
         print(f"Iteration {i}")
-        time.sleep(1)
-        # await asyncio.sleep(1)
+        # time.sleep(1)
+        await asyncio.sleep(1)
 
 
 # import os
