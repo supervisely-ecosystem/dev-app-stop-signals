@@ -1,18 +1,17 @@
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI
 from fastapi_utils.tasks import repeat_every
 
-from supervisely.app.fastapi import run_sync
-import time
+# from supervisely.app.fastapi import run_sync
+# import time
 import asyncio
 
 app = FastAPI()
-bg_tasks = BackgroundTasks()
 
 
 @app.on_event("startup")
-def startup_event():
+async def startup_event():
     print("----> start")
-    bg_tasks.add_task(long_task_sync)
+    await long_task_async()
 
 
 @app.on_event("shutdown")
@@ -30,11 +29,11 @@ async def long_task_async():
         await asyncio.sleep(1)
 
 
-def long_task_sync():
-    print("long task sync")
-    for i in range(100):
-        print(f"Iteration {i}")
-        time.sleep(1)
+# def long_task_sync():
+#     print("long task sync")
+#     for i in range(100):
+#         print(f"Iteration {i}")
+#         time.sleep(1)
 
 
 # import os
