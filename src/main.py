@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi_utils.tasks import repeat_every
 
 # from supervisely.app.fastapi import run_sync
-# import time
+import time
 import asyncio
 
 app = FastAPI()
